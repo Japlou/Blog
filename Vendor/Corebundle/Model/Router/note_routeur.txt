@@ -1,0 +1,3 @@
+/*
+* Le router genere l'execution d'un certain code suivant l'URL qui est tapee par l'utilisateur
+ */
