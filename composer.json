@@ -1,0 +1,19 @@
+{
+    "name": "magalie/blog",
+    "description": "nom blog du projet5",
+    "authors": [
+        {
+            "name": "nefise magalie",
+            "email": "nefise.magalie@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Controllers\\": "Src/AppBundle/Controller",
+            "Entitys\\": "Src/AppBundle/Entity",
+            "Config\\": "Vendor/Corebundle/Config_bdd",
+            "Models\\": "Vendor/Corebundle/Model"
+        }
+    },
+    "require": {}
+}
