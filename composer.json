@@ -15,5 +15,7 @@
             "Models\\": "Vendor/Corebundle/Model"
         }
     },
-    "require": {}
+    "require": {
+        "twig/twig": "^1.35"
+    }
 }
