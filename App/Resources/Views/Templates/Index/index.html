@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Index page of my blog">
+    <meta name="author" content="Magalie">
+
+    <title>NEFISE Magalie - Mon blog professionnel</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="Vendor/Bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="Vendor/Font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="Web/Assets/css/clean-blog.min.css" rel="stylesheet">
+
+  </head>
+
+  <body id="page-top" data-psy="scroll" data-target=".navbar">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand" href="Web/Assets/curriculum-vitae/CV_nefise_magalie.pdf">Curriculum Vitae</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fa fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="posts">Liste des Articles</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="posts/create">Créer un Article</a>
+            </li>
+            <li class="nav-item" href="#page-top">
+              <a class="nav-link" href="#contact" >Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('Web/Assets/img/assis-bg.jpg')">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="site-heading">
+              <h1>NEFISE MAGALIE</h1>
+              <span class="subheading">Mon Blog de développeur web</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <img src="Web/Assets/img/logo-bg.png" style="padding-left: 110px">
+          <h2>La formation délivrée chez OpenClassRoom, cursus développeuse web </h2>
+          <P> Mon blog parlera de la formations à distance que je suis pendent 1 ans chez OpenClassRoom, vous pourrez suivre des articles intéressent sur l'avis d'autre élèves et en poster un vous-même. <br/>
+          Venez nombreux nous parler de votre expérience.
+          </P>
+          <h2>Mon Avis sur la formation de developpeuse web</h2>
+          <p>Ce centre de formation à distance et d'après moi la meilleur sur le marcher actuellement en ce qui concerne les formations du numérique, il y a longtemps que je les suis, avant même qui se nomme OpenClassRoom.<br/>
+          Depuis je me suis investis dans la formation de développeur web afin d'acquérir plus de compétence à faire valoir sur le marché du travail.<br/>
+          La formation et bien conçue dans ca généralité du cursus, on a des cours écrit avec des exercices applicatif.
+          On est suivie par des mentors qui sont des professionnelles du métier, des projets concret a construire et exposer lors d'une évaluation faite en visioconférence.<br/>
+          Chaque étape des modules sont à faire valider et à la fin un stage dans une entreprise et même envisageable.
+          L’examen se déroule par section après avoir valider l’ensemble des modules devant un jury.<br/>
+          Ce qui est sûr c’est que cette formation nous apporte une méthode de travail efficace et développe notre capacité d’analyse.
+
+           </p>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <!--Envoie de mail (formulaire de contact)-->
+          <h2 id="contact">Contact</h2>
+            <!--appelle du fichier php -->
+          <form  action="contact" method="POST" name="sentMessage" id="contactForm" novalidate>
+            <div class="control-group">
+              <div class="form-group floating-label-form-group controls">
+                <label for="name"> Nom et prénom</label>
+                <input type="text" name="name" class="form-control" placeholder="Nom et prénom" id="name" required data-validation-required-message="Veuillez entrer vos noms ett prénoms.">
+                <p class="help-block text-danger"></p>
+              </div>
+            </div>
+            <div class="control-group">
+              <div class="form-group floating-label-form-group controls">
+                <label for="email"> Adresse Email</label>
+                <input type="email" name="email" class="form-control" placeholder="Adresse Email" id="email" required data-validation-required-message="Veuillez votre adresse email.">
+                <p class="help-block text-danger"></p>
+              </div>
+            </div>
+            <div class="control-group">
+              <div class="form-group floating-label-form-group controls">
+                <label for="message">Message</label>
+                <textarea rows="5" class="form-control" placeholder="Message" id="message" name="message" required data-validation-required-message="Veuillez entrer un message."></textarea>
+                <p class="help-block text-danger"></p>
+              </div>
+            </div>
+            <br>
+            <div id="success"></div>
+            <div class="form-group">
+              <button type="submit" class="btn btn-secondary" id="sendMessageButton">Envoyer</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+  <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <ul class="list-inline text-center">
+              <li class="list-inline-item">
+                <a href="https://www.linkedin.com/in/magalie-nefise-4a8438a8">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://fb.me/i/1l1JYbT2a">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://github.com/Japlou/">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+            </ul>
+            <p class="copyright text-muted">Copyright &copy; Mon blog 2017</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="Vendor/Jquery/jquery.min.js"></script>
+    <script src="Vendor/Popper/popper.min.js"></script>
+    <script src="Vendor/Bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="Web/Assets/js/clean-blog.min.js"></script>
+
+
+    <script>
+      $('a[href^="#"]').click(function(){
+        var the_id = $(this).attr("href");
+
+      $('html, body').animate({
+       scrollTop:$(the_id).offset().top
+      }, 'slow');
+      return false;
+    });
+    </script>
+
+  </body>
+
+</html>
