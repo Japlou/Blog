@@ -8,7 +8,7 @@
     <meta name="description" content="Index page of my blog">
     <meta name="author" content="Magalie">
 
-    <title>NEFISE Magalie</title>
+    <title>NEFISE Magalie - Mon blog professionnel</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../Vendor/Bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -23,7 +23,7 @@
 
   </head>
 
-  <body id="page-top" data-psy="scroll" data-target=".navbar">
+  <body>
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
@@ -36,54 +36,79 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link" href="../">Acceuil</a>
+              <a class="nav-link" href="../home">Acceuil</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="../posts">Liste des Posts</a>
+              <a class="nav-link" href="../posts">Liste des Articles</a>
             </li>
-             <li class="nav-item">
-              <a class="nav-link" href="create">Crees des Posts</a>
+            <li class="nav-item">
+              <a class="nav-link" href="create">Créer un Article</a>
             </li>
             <li class="nav-item" href="#page-top">
-              <a class="nav-link"  href="/contact#contact" >Contact</a>
+              <a class="nav-link"  href="../#contact" >Contact</a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
      <!-- Page Header -->
-    <header class="masthead" style="background-image: url('../web/Assets/img/Post-bg.jpg')">
+    <header class="masthead" style="background-image:radial-gradient(grey, black);">
       <div class="container">
         <div class="row">
           <div class="col-lg-8 col-md-10 mx-auto">
-            <div class="post-heading">
-              <h2>{{ titre }}</h2>
+            <div class="site-heading">
+              <h2>MODIFICATION DE L'ARTICLE</h2>
+              <span class="subheading">Ici on modifie son article publier</span>
             </div>
           </div>
         </div>
       </div>
     </header>
-    <!-- Post Content -->
-    <article>
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 col-md-10 mx-auto">
-            <div class="post-heading">
-              <h2 class="subheading">{{ chapo }}</h2>
-              <span class="meta">Post cree par <a href="#">{{ auteur }}</a> en date du : {{ dateCreation }}</span>
+    {% block content %}
+<!-- Main Content -->
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <p>Modifier le formulaire ci-dessous afin d'apporter des améliorations a votre article :</p>
+          <form name="addPost" id="addForm" method="post" action="create">
+            <div class="control-group">
+              <div class="form-group floating-label-form-group controls">
+                <label>Titre</label>
+                <input type="text" class="form-control" placeholder="Titre" id="titre" name="titre" value="{{ titre }}" required data-validation-required-message="Vous devez entrer un titre pour votre Post !">
+                <p class="help-block text-danger"></p>
+              </div>
             </div>
-            <p>{{ contenu }}</p>
-            <div class="post-preview">
-              <p class="post-meta">Dernière modification le {{ dateModification }}.</p>
+            <div class="control-group">
+              <div class="form-group floating-label-form-group controls">
+                <label>Sous-titre</label>
+                <input type="text" class="form-control" placeholder="Sous-titre" id="chapo" name="chapo" value="{{ chapo }}" required data-validation-required-message="Veuillez entrer un sous-titre pour votre Post !">
+                <p class="help-block text-danger"></p>
+              </div>
             </div>
-            <div class="clearfix">
-              <a class="btn btn-secondary float-left" href="update-{{id}}">Modifier ce Post</a>
-              <a class="btn btn-secondary float-right" href="delete-{{id}}">Supprimer ce Post</a>
+            <div class="control-group">
+              <div class="form-group col-xs-12 floating-label-form-group controls">
+                <label>Auteur</label>
+                <input type="text" class="form-control" placeholder="Auteur" id="auteur" name="auteur" value="{{ auteur }}" required data-validation-required-message="Veuillez entrer vôtre nom !">
+                <p class="help-block text-danger"></p>
+              </div>
             </div>
-          </div>
+            <div class="control-group">
+              <div class="form-group floating-label-form-group controls">
+                <label>Message</label>
+                <textarea rows="5" class="form-control" placeholder="Message" id="contenu" name="contenu" required data-validation-required-message="Veuillez modifier le contenu de votre Poste !">{{ contenu }}</textarea>
+                <p class="help-block text-danger"></p>
+              </div>
+            </div>
+            <br>
+            <div id="success"></div>
+            <div class="form-group">
+              <button type="submit" class="btn btn-secondary" id="sendPostButton"  style="background-image:radial-gradient(grey, black);">Modifier l'article</button>
+            </div>
+          </form>
         </div>
       </div>
-    </article>
+    </div>
+    {% endblock %}
     <hr>
 
     <!-- Footer -->

@@ -65,6 +65,15 @@ class Database
 		return $query;
 	}
 
+	//mettre a jour un post en fonction de son identifiant (ID).
+	
+	public function update($attributes)
+	{
+		$query = $this->getPDO()->prepare('UPDATE post SET titre = :titre, auteur = :auteur, chapo = :chapo, dateModification = now(), contenu = :contenu WHERE id = :id');
+		$query->execute($attributes);
+		return $query;
+	}
+
 	//Recupere le dernier identifiant de la table.
 		
 	public function max()
