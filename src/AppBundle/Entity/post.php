@@ -8,7 +8,7 @@ namespace Entitys;
 
 class Post {
 
-			 private $_id, $_titre, $_auteur, $_chapo, $_contenu, $_dateCreation, $_dateModification;
+	 private $id, $titre, $auteur, $chapo, $contenu, $dateCreation, $dateModification;
 
 	/**
 	 * constructeur de la classe qui assigne les donnees specifiees en parametre aux attributs correspondants.
@@ -36,68 +36,68 @@ class Post {
 	
 	public function  getid()
 	{
-		return $this->_id;
+		return $this->id;
 	}
 	public function getAuteur()
 	{
-		return $this->_auteur;
+		return $this->auteur;
 	}
 	public function getTitre()
 	{
-		return $this->_titre;
+		return $this->titre;
 	}
 	public function getChapo()
 	{
-		return $this->_chapo;
+		return $this->chapo;
 	}
 	public function getContenu()
 	{
-		return $this->_contenu;
+		return $this->contenu;
 	}
 	public function getDateModification()
 	{
-		return $this->_dateModification;
+		return $this->dateModification;
 	}
 	public function getDateCreation()
 	{
-		return $this->_dateCreation;
+		return $this->dateCreation;
 	}
 
 	// SETTERS //
 	
 	public function setId($id)
 	{
-			$this->_id = (string) $id;		
+			$this->id = (string) $id;		
 	}
 
 	public function setTitre($titre)
 	{		
-			$this->_titre = (string) $titre;	
+			$this->titre = (string) $titre;	
 	}
 
 	public function setChapo($chapo)
 	{
-			$this->_chapo = (string) $chapo;	
+			$this->chapo = (string) $chapo;	
 	}
 
 	public function setContenu($contenu)
 	{	
-			$this->_contenu = (string) $contenu;
+			$this->contenu = (string) $contenu;
 	}
 
 	public function setAuteur($auteur)
 	{
-			$this->_auteur = (string) $auteur;
+			$this->auteur = (string) $auteur;
 	}
 
 	public function setDateModification($dateModification)
 	{
-		$this->_dateModification = $dateModification;
+		$this->dateModification = $dateModification;
 	}
 
 	public function setDateCreation($dateCreation)
 	{
-		$this->_dateCreation = $dateCreation;
+		$this->dateCreation = $dateCreation;
 	}
 
 }

@@ -35,40 +35,53 @@ class Database
 		return $this->pdo;
 	}
 
-	public function query($statement)
+	//List de tout les Posts
+
+	public function select()
 	{
-		$query = $this->getPDO()->query($statement);
+		$query = $this->getPDO()->query('SELECT id, titre, chapo, auteur, DATE_FORMAT(dateCreation, \'%d/%m/%Y a %Hh%i\') AS dateCreation, DATE_FORMAT(dateModification, \'%d/%m/%Y a %Hh%i\') AS dateModification, contenu FROM post ORDER BY id DESC');
 		// Retourne un tableau contenant toutes les lignes du jeu d'enregistrements.
 		$data = $query->fetchall(PDO::FETCH_OBJ); //retourne le jeu de résultats sous forme d'un objet dont les noms de propriétés correspondent aux noms des colonnes
 		return $data; //retourne la valeur $data.
-
 	}
 
-	public function show($statement, $attributes)
+	//Affiche un post specifique en fonction de son identifiant (id)
+
+	public function show($attributes)
 	{
-		$query = $this->getPDO()->prepare($statement);
+		$query = $this->getPDO()->prepare('SELECT id, titre, chapo, auteur, DATE_FORMAT(dateCreation, \'%d/%m/%Y a %Hh%i\') AS dateCreation, DATE_FORMAT(dateModification, \'%d/%m/%Y a %Hh%i\') AS dateModification, contenu FROM post WHERE id = :id');
 		$query->execute($attributes);
 		$data = $query->fetchall();
 		return $data;
-	
 	}
 
-	public function insert($statement, $attributes)
+	//Insert le Post dans la BDD
+
+	public function insert($attributes)
 	{
 		//requete preparer 
-		$query = $this->getPDO()->prepare($statement);
+		$query = $this->getPDO()->prepare('INSERT INTO post (titre, auteur, chapo, contenu, dateCreation, dateModification) VALUES (:titre, :auteur, :chapo, :contenu, now(), now())');
 		$query->execute($attributes);//execute la requete preparer getPDO.
 		return $query;
 	}
 
-	public function max($statement)
+	//Recupere le dernier identifiant de la table.
+		
+	public function max()
 	{
-		$query = $this->getPDO()->query($statement);
+		$query = $this->getPDO()->query('SELECT MAX(id) FROM post');
 		$data = $query->fetch(PDO::FETCH_ASSOC);
 		return $data;
 	}
 
+	// Supprime un Post de la BDD en fonction de son ID
 	
-
+	public function delete($attributes)
+	{
+		$query = $this->getPDO()->prepare('DELETE FROM post WHERE id = :id');
+		$query->execute($attributes);
+		return $query;
+		
+	}
 }
 
