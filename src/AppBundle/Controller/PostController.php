@@ -26,11 +26,10 @@ class PostController extends Controller
 			]);
 			$id = $this->db->max();
 			$this->showAction($id['MAX(id)']);
-
-
 		}
 	}
-	//Message envoye lors de la suppretion d'un post.
+
+	//Message envoye lors de la suppression d'un post.
 	
 	public function deleteAction($id)
 	{
@@ -57,9 +56,7 @@ class PostController extends Controller
                 "auteur" => $post->getAuteur(),
                 "contenu" => $post->getContenu()
             ]
-
         );
-
 	}
 
 	public function listAction()
@@ -69,9 +66,7 @@ class PostController extends Controller
 			[
 				"list" => $list
 			]
-
 		);
-
 	}
 
 	public function showAction($id)
@@ -96,7 +91,39 @@ class PostController extends Controller
 
 	public function updateAction($id)
 	{
-		echo "Vous êtes sur le point de faire une mise a jours du post " . $id;
+		if (!isset($_POST['titre']) && !isset($_POST['chapo']) && !isset($_POST['auteur']) && !isset($_POST['contenu']))
+		{
+			$query = $this->db->show(
+			[
+				'id' => $id
+			]);
+		$post= new Post($query[0]);
+        echo $this->twig->render('modifPost.html',
+            [
+                "id" => $post->getid(),
+                "titre" => $post->getTitre(),
+                "chapo" => $post->getChapo(),
+                "auteur" => $post->getAuteur(),
+                "dateCreation" => $post->getDateCreation(),
+                "dateModification" => $post->getDateModification(),
+                "contenu" => $post->getContenu()
+            ]
+        );
+
+		}else {
+
+			$query = $this->db->update(
+			[ // parametre $_POST.
+				'id' => $_POST['id'],
+				'titre' => $_POST['titre'],
+				'auteur' => $_POST['auteur'],
+				'chapo' => $_POST['chapo'],
+				'contenu' => $_POST['contenu']
+
+			]);
+			$this->showAction($id);
+
+		}
 	}
 
 }
