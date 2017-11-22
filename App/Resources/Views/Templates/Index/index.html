@@ -10,6 +10,9 @@
 
     <title>NEFISE Magalie - Mon blog professionnel</title>
 
+    <link rel="icon" type="image/png" href="Web/Assets/img/logo-bg.png"/>
+
+
     <!-- Bootstrap core CSS -->
     <link href="Vendor/Bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -67,15 +70,18 @@
         <div class="col-lg-8 col-md-10 mx-auto">
           <img src="Web/Assets/img/logo-bg.png" style="padding-left: 110px">
           <h2>La formation délivrée chez OpenClassRoom, cursus développeuse web </h2>
-          <P> Mon blogue parlera de la formation à distance que je suis pendant 1 an chez OpenClassRoom, vous pourrez suivre des articles intéressent sur l'avis d'autres élèves et en poster un vous-même. Venez nombreux nous parler de votre expérience.
+          <P> Mon blog traitera de la formation à distance que je fais depuis  un an chez OpenClassRoom, vous pourrez suivre des articles sur l'avis d'autres élèves et en poster un vous-même. Venez y trouverez des avis d’autres élèves et pourrez en poster un vous-même. Venez nombreux nous parler de votre expérience !
           </P>
+
           <h2>Mon Avis sur la formation de developpeuse web</h2>
-          <p>Ce centre de formation à distance et d'après moi la meilleure sur le marché actuellement en ce qui concerne les formations du numérique, il y a longtemps que je les suits, avant même qui ne se nomme OpenClassRoom. <br/><br/>
-            Depuis je me suis investis dans la formation de développeur web afin d'acquérir plus de compétences à faire valoir sur le marché du travail.<br/>
-            La formation et bien conçue dans sa généralité du cursus, on a des cours écrits avec des exercices applicatifs.<br/>
-            On est suivie par des mentors qui sont des professionnelles du métier, des projets concrets à construire et exposer lors d'une évaluation faite en visioconférence. <br/>
-            Chaque étape des modules est à faire valider et à la fin un stage dans une entreprise et même envisageable.<br/> <br/>
-            L’examen se déroule par section après avoir validé l’ensemble des modules devant un jury.Ce qui est sûr, c’est que cette formation nous apporte une méthode de travail efficace et développe notre capacité d’analyse.
+          <p>Cet organisme de formation à distance est d'après moi le meilleure sur le marché actuellement en ce qui concerne les formations du numérique. <br />
+          Je me suis investis dans la formation de développeur web afin d'acquérir plus de compétences à faire valoir sur le marché du travail.<br />
+          La formation est bien conçue, chaque cours est suivi d’exercices d’application permettant de vérifier l’assimilation des connaissances avant de passer à la prochaine étape, des projets concrets à construire et exposer lors d'une évaluation faite en visioconférence. <br />
+          Chaque étape des modules est à faire valider par un autre mentor que celui qui nous suis dans la face de construction du projet. Enfin, les étudiants ayant validé tout le cursus peuvent postuler pour un stage en entreprise.<br />
+          Chaque étudiant est suivi par des mentors choisie suivent leur domaine de compétence et qui sont des professionnelles du métier.
+          L’examen se déroule suivent un planning établie par l’organisme  après avoir validé l’ensemble des modules devant un jury.<br />
+          Etant arrivée presque au bout du cursus, je peux témoigner que cette formation m’a apporté une méthode de travail efficace, et a développé mes capacités d’analyse.
+
 
            </p>
         </div>
@@ -87,7 +93,9 @@
           <!--Envoie de mail (formulaire de contact)-->
           <h2 id="contact">Contact</h2>
             <!--appelle du fichier php -->
-          <form  action="contact" method="POST" name="sentMessage" id="contactForm" novalidate>
+          <form name="contact" id="contact" method="post" action="contact">
+            <input type="hidden" name="subject" value="Formulaire de contact">
+            <input type="hidden" name="access" value="stopspam">
             <div class="control-group">
               <div class="form-group floating-label-form-group controls">
                 <label for="name"> Nom et prénom</label>
@@ -112,7 +120,7 @@
             <br>
             <div id="success"></div>
             <div class="form-group">
-              <button type="submit" class="btn btn-secondary" id="sendMessageButton">Envoyer</button>
+              <button type="submit" class="btn btn-secondary" id="sendMessageButton" style="background-image:radial-gradient(grey, black);">Envoyer</button>
             </div>
           </form>
         </div>
