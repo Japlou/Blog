@@ -5,18 +5,13 @@ namespace Config;
 class Instance_db 
 {
 	private $donnees = [];
-	/**
-   * @var Singleton
-   * @access private
-   * @static
-   */
+	
 	private static $_instance; // Contientras l'instance de la class.
 
    /**
     * Méthode qui crée l'unique instance de la classe
     * si elle n'existe pas encore puis la retourne.
-    * @param void la fonction getInstance n'accepte aucun parametre 
-    * @return Singleton
+    * @return   [<S'assure que c'est un singletron donc la class Instance_db est seulement instancié une fois>]
     */
   public static function getInstance()
    {

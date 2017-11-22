@@ -14,7 +14,7 @@ class Database
 	private $db_host;
 	private $pdo;
 
-	//instance de PDO qui represente la connexion a la BDD.
+	// Instance de PDO qui represente la connexion a la BDD.
 	
 	public function __construct ($db_name, $db_user = 'root', $db_pass = '', $db_host = 'localhost')
 	{
@@ -25,7 +25,8 @@ class Database
 
 	}
 
-	//Connexion a la BDD en utilisant PDO
+	// Connexion a la BDD en utilisant PDO
+	
 	private function getPDO() {
 		if($this->pdo === null) { // s'assure que la BDD est pas deja connectee.
 			$pdo = new PDO('mysql:dbname=blog;host=localhost', 'root', '');
@@ -39,45 +40,49 @@ class Database
 
 	public function select()
 	{
+		//Chargement d'une requete SELECT 
 		$query = $this->getPDO()->query('SELECT id, titre, chapo, auteur, DATE_FORMAT(dateCreation, \'%d/%m/%Y a %Hh%i\') AS dateCreation, DATE_FORMAT(dateModification, \'%d/%m/%Y a %Hh%i\') AS dateModification, contenu FROM post ORDER BY id DESC');
 		// Retourne un tableau contenant toutes les lignes du jeu d'enregistrements.
 		$data = $query->fetchall(PDO::FETCH_OBJ); //retourne le jeu de résultats sous forme d'un objet dont les noms de propriétés correspondent aux noms des colonnes
 		return $data; //retourne la valeur $data.
 	}
 
-	//Affiche un post specifique en fonction de son identifiant (id)
+	// Affiche un post specifique en fonction de son identifiant (id)
 
 	public function show($attributes)
 	{
+		//Chargement d'une requete preparer SELECT 
 		$query = $this->getPDO()->prepare('SELECT id, titre, chapo, auteur, DATE_FORMAT(dateCreation, \'%d/%m/%Y a %Hh%i\') AS dateCreation, DATE_FORMAT(dateModification, \'%d/%m/%Y a %Hh%i\') AS dateModification, contenu FROM post WHERE id = :id');
 		$query->execute($attributes);
 		$data = $query->fetchall();
 		return $data;
 	}
 
-	//Insert le Post dans la BDD
+	// Insert le Post dans la BDD
 
 	public function insert($attributes)
 	{
-		//requete preparer 
+		//Chargement d'une requete preparer INSERT  
 		$query = $this->getPDO()->prepare('INSERT INTO post (titre, auteur, chapo, contenu, dateCreation, dateModification) VALUES (:titre, :auteur, :chapo, :contenu, now(), now())');
 		$query->execute($attributes);//execute la requete preparer getPDO.
 		return $query;
 	}
 
-	//mettre a jour un post en fonction de son identifiant (ID).
+	// Met à jour un post en fonction de son identifiant (ID).
 	
 	public function update($attributes)
 	{
+		//Chargement d'une requete preparer UPDATE
 		$query = $this->getPDO()->prepare('UPDATE post SET titre = :titre, auteur = :auteur, chapo = :chapo, dateModification = now(), contenu = :contenu WHERE id = :id');
 		$query->execute($attributes);
 		return $query;
 	}
 
-	//Recupere le dernier identifiant de la table.
+	// Recupere le dernier identifiant de la table.
 		
 	public function max()
 	{
+		//Chargement d'une requete SELECT.
 		$query = $this->getPDO()->query('SELECT MAX(id) FROM post');
 		$data = $query->fetch(PDO::FETCH_ASSOC);
 		return $data;
@@ -87,6 +92,7 @@ class Database
 	
 	public function delete($attributes)
 	{
+		//Chargement d'une requete preparer DELETE.
 		$query = $this->getPDO()->prepare('DELETE FROM post WHERE id = :id');
 		$query->execute($attributes);
 		return $query;
