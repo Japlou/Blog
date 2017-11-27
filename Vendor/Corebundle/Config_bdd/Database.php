@@ -45,6 +45,7 @@ class Database
 		// Retourne un tableau contenant toutes les lignes du jeu d'enregistrements.
 		$data = $query->fetchall(PDO::FETCH_OBJ); //retourne le jeu de résultats sous forme d'un objet dont les noms de propriétés correspondent aux noms des colonnes
 		return $data; //retourne la valeur $data.
+		
 	}
 
 	// Affiche un post specifique en fonction de son identifiant (id)

@@ -42,5 +42,4 @@ class Instance_db
     }
     return $this->donnees[$key];
   } 
-
 }

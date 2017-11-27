@@ -70,6 +70,7 @@ class PostController extends Controller
 				"list" => $list
 			]
 		);
+
 	}
 	//Methode de la fonction Post
 	
@@ -131,6 +132,6 @@ class PostController extends Controller
 			]);
 			$this->showAction($id);
 		}	
-	}
+	}	
 
 }
